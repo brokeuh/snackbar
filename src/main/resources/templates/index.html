@@ -14,7 +14,6 @@
     <link rel="stylesheet" th:href="@{/CSS/main.css}">
 
 
-
     <!-- script-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -37,12 +36,27 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="snack : ${allsnacks}">
+    <tr th:each="snack : ${allSnacks}">
         <td th:text="${snack.name} "></td>
         <td th:text="${snack.price}"></td>
     </tr>
     </tbody>
 </table>
+<div>
+    <form th:action="@{~/index}"method="post" th:object="${newSnack}">
+        <label for="name">Name</label>
+        <input text="text" th:field="*{name}" id="name">
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    </form>
+
+    <form th:action="@{~/index}"method="post" th:object="${newSnack}">
+        <label for="name">Price</label>
+        <input text="text" th:field="*{price}" id="price">
+        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+
+        <input type="submit" >
+    </form>
+</div>
 
 </body>
 </html>
