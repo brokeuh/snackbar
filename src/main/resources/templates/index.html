@@ -43,13 +43,14 @@
     </tbody>
 </table>
 <div>
-    <form th:action="@{~/index}"method="post" th:object="${newSnack}">
+    <form th:action="@{~/index}"Method="post" th:object="${newSnack}">
+
         <label for="name">Name</label>
         <input text="text" th:field="*{name}" id="name">
         <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
     </form>
 
-    <form th:action="@{~/index}"method="post" th:object="${newSnack}">
+    <form th:action="@{~/index}"Method="post" th:object="${newSnack}">
         <label for="name">Price</label>
         <input text="text" th:field="*{price}" id="price">
         <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>

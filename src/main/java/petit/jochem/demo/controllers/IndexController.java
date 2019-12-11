@@ -36,7 +36,7 @@ public class IndexController {
     }
 
     @RequestMapping(value = {"", "/", "/index"}, method = RequestMethod.POST)
-    public String saveSnack(@Valid Snack newSnack, BindingResult bindingResult) {
+    public String saveSnack(@ModelAttribute("newSnack") @Valid Snack newSnack, BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "index";
         dao.save(newSnack);
